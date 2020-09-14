@@ -10,9 +10,9 @@ function App() {
   return (
     <Fragment>
         <GlobalStyle />
-      <PrimaryButton disabled> Hello, Working </PrimaryButton>
-      <SecondaryButton disabled> Secondary Button </SecondaryButton>
-      <TertiaryButton disabled> Tertiary Button </TertiaryButton>
+      <PrimaryButton modifiers={["small", "warning"]}> Hello, Working </PrimaryButton>
+      <SecondaryButton modifiers={["large","warning", "secondaryButtonWarning"]}> Secondary Button </SecondaryButton>
+      <TertiaryButton modifiers={[ "small" ]}> Tertiary Button </TertiaryButton>
     </Fragment>
   );
 }
