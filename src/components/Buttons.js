@@ -86,7 +86,6 @@ const BUTTON_MODIFIERS = {
   `,
 };
 
-const White = "#fff";
 
 const Button = styled.button`
   padding: 12px 24px;
@@ -115,7 +114,7 @@ const Button = styled.button`
     color: ${(props) => props.theme.textColorOnPrimary};
   }
 `;
-const PrimaryButton = styled(Button)`
+export const PrimaryButton = styled(Button)`
   background-color: ${(props) => props.theme.primaryColor};
   border: none;
   color: ${(props) => props.theme.textColorOnPrimary};
@@ -158,5 +157,3 @@ export const TertiaryButton = styled(Button)`
 
   ${applyStyleModifiers(BUTTON_MODIFIERS)}
 `;
-
-export default PrimaryButton;

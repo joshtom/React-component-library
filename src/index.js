@@ -1,11 +1,8 @@
 import React, { Fragment, useState } from "react";
 import ReactDom from "react-dom";
 import styled, { ThemeProvider } from 'styled-components'
-import PrimaryButton, {
-  SecondaryButton,
-  TertiaryButton,
-} from "./components/Buttons";
-import { GlobalStyle, defaultTheme, darkTheme } from './utils';
+import { SignUpModal } from "./components/index";
+import { GlobalStyle, defaultTheme, darkTheme } from './utils/index';
 
 function App() {
   const [ useDarkTheme, setUseDarkTheme ] = useState(false);
@@ -33,9 +30,10 @@ function App() {
     <Fragment>
         <GlobalStyle />
       <ButtonWrapper>
-      <PrimaryButton> Hello, Working </PrimaryButton>
+      {/* <PrimaryButton> Hello, Working </PrimaryButton>
       <SecondaryButton> Secondary Button </SecondaryButton>
-      <TertiaryButton> Tertiary Button </TertiaryButton>
+      <TertiaryButton> Tertiary Button </TertiaryButton> */}
+      <SignUpModal />
       </ButtonWrapper>
     </Fragment>
     </ThemeProvider>
