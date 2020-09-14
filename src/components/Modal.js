@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { typeScale } from './utils';
+import { typeScale } from '../utils';
 import { Illustrations, CloseIcon } from '../assets';
 import { PrimaryButton } from './Buttons';
 
 const ModalWrapper = styled.div`
-    width: 630px;
-    height: 500px;
+    width: 800px;
+    min-height: 500px;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     background-color: ${props => props.theme.formElementBackground};
     color: ${props => props.theme.textOnFormElementBackground};
@@ -16,20 +16,21 @@ const ModalWrapper = styled.div`
     align-items: center;
     position: relative;
     border-radius: 2px;
+    padding-top: 20px;
 `;
 
 const SignUpHeader = styled.h3 `
     font-size: ${typeScale.header3};
 `;
 
-const signUpText = styled.p`
+const SignUpText = styled.p`
     font-size: ${typeScale.paragraph};
     max-width: 70%;
     text-align: center;
 `;
 
 const CloseModalButton = styled.button`
-    cursor: pointere;
+    cursor: pointer;
     background: none;
     border: none;
     position: absolute;
@@ -47,9 +48,9 @@ export function SignUpModal() {
             aria-hidden="true"
             />
             <SignUpHeader> Sign Up </SignUpHeader>
-            <signUpText>
+            <SignUpText>
                 Sign up today to get access
-            </signUpText>
+            </SignUpText>
             <PrimaryButton>Sign up</PrimaryButton> 
             <CloseModalButton> 
                 <CloseIcon />

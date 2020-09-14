@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from "react";
 import ReactDom from "react-dom";
 import styled, { ThemeProvider } from 'styled-components'
-import { SignUpModal } from "./components/index";
-import { GlobalStyle, defaultTheme, darkTheme } from './utils/index';
+// import { PrimaryButton, SecondaryButton, TertiaryButton } from "./components";
+import { SignUpModal } from "./components";
+import { GlobalStyle, defaultTheme, darkTheme } from './utils';
 
 function App() {
   const [ useDarkTheme, setUseDarkTheme ] = useState(false);
