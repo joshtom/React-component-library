@@ -1,19 +1,44 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import ReactDom from "react-dom";
+import styled, { ThemeProvider } from 'styled-components'
 import PrimaryButton, {
   SecondaryButton,
   TertiaryButton,
 } from "./components/Buttons";
-import { GlobalStyle } from './utils';
+import { GlobalStyle, defaultTheme, darkTheme } from './utils';
 
 function App() {
+  const [ useDarkTheme, setUseDarkTheme ] = useState(false);
+
+
+  const ButtonToggle = styled.button`
+  margin: 0 16px 24px;
+  padding: 8px;
+  background: 'none';
+  `
+  const ButtonWrapper = styled.div`
+  background-color: ${ useDarkTheme ? defaultTheme.primaryColor : darkTheme.primaryColor };
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around
+`
+
   return (
+      <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
+        <ButtonToggle onClick={() => setUseDarkTheme(!useDarkTheme)}>
+        { useDarkTheme ? 'Default theme' : 'Dark theme'}
+        </ButtonToggle>
     <Fragment>
         <GlobalStyle />
-      <PrimaryButton modifiers={["small", "warning"]}> Hello, Working </PrimaryButton>
-      <SecondaryButton modifiers={["large","warning", "secondaryButtonWarning"]}> Secondary Button </SecondaryButton>
-      <TertiaryButton modifiers={[ "small" ]}> Tertiary Button </TertiaryButton>
+      <ButtonWrapper>
+      <PrimaryButton> Hello, Working </PrimaryButton>
+      <SecondaryButton> Secondary Button </SecondaryButton>
+      <TertiaryButton> Tertiary Button </TertiaryButton>
+      </ButtonWrapper>
     </Fragment>
+    </ThemeProvider>
   );
 }
 
