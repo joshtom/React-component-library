@@ -7,6 +7,7 @@ import { GlobalStyle, defaultTheme, darkTheme } from './utils';
 
 function App() {
   const [ useDarkTheme, setUseDarkTheme ] = useState(false);
+  const [ showModal, setShowModal ] = useState(false);
 
 
   const ButtonToggle = styled.button`
@@ -28,13 +29,19 @@ function App() {
         <ButtonToggle onClick={() => setUseDarkTheme(!useDarkTheme)}>
         { useDarkTheme ? 'Default theme' : 'Dark theme'}
         </ButtonToggle>
+        <ButtonToggle onClick={() => setShowModal(!showModal)}>
+        { showModal ? 'Close Modal' : 'Open Modal'}
+        </ButtonToggle>
     <Fragment>
         <GlobalStyle />
       <ButtonWrapper>
       {/* <PrimaryButton> Hello, Working </PrimaryButton>
       <SecondaryButton> Secondary Button </SecondaryButton>
       <TertiaryButton> Tertiary Button </TertiaryButton> */}
-      <SignUpModal />
+      <SignUpModal 
+      showModal={showModal}
+      setShowModal={setShowModal}
+      />
       </ButtonWrapper>
     </Fragment>
     </ThemeProvider>

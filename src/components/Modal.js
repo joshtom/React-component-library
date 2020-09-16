@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 import { typeScale } from '../utils';
 import { Illustrations, CloseIcon } from '../assets';
 import { PrimaryButton } from './Buttons';
@@ -24,6 +25,7 @@ const SignUpHeader = styled.h3 `
 `;
 
 const SignUpText = styled.p`
+    color: ${ props => props.theme.primaryColor };
     font-size: ${typeScale.paragraph};
     max-width: 70%;
     text-align: center;
@@ -41,8 +43,13 @@ const CloseModalButton = styled.button`
     padding: 0;
 `
 
-export function SignUpModal() {
+export function SignUpModal({ showModal, setShowModal }) {
+    const animation = useSpring({
+        opacity: showModal ? 1 : 0,
+        transform: showModal ? 'translateY(0)' : 'translateY(-200%)'
+    })
     return(
+        <animated.div style={animation}>
         <ModalWrapper>
             <img src={Illustrations.SignUp} alt="Sign up for an account"
             aria-hidden="true"
@@ -56,5 +63,6 @@ export function SignUpModal() {
                 <CloseIcon />
             </CloseModalButton>
         </ModalWrapper>
+        </animated.div>
     )
 }
